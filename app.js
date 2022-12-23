@@ -80,8 +80,8 @@ function playRound(){
 }
 
 function game(){
-    for (i = 0; i < 3; i++){
-        playRound()
+    for (i = 0; i < 5; i++){
+        console.log(playRound())
     }
 }
 
