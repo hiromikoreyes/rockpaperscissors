@@ -34,5 +34,9 @@ function getComputerChoice(){
 }
 
 function getPlayerChoice(){
-    return prompt("what do you choose?: ");
+    return prompt("what do you choose?: ").toLowerCase();
 }
+
+
+
+
