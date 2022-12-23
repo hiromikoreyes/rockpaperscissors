@@ -31,9 +31,8 @@ function getComputerChoice(){
             return 'scissors';
             break;
     }
+}
 
-
-
-    
-
+function getPlayerChoice(){
+    return prompt("what do you choose?: ");
 }
