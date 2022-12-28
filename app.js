@@ -1,3 +1,5 @@
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice(){
     //Return the play of the computer in the game.
@@ -15,15 +17,6 @@ function getComputerChoice(){
             break;
     }
 }
-
-
-/*
-We don't really need this but I'll keep it for fun
-
-function getPlayerChoice(){
-    return prompt("what do you choose?: ").toLowerCase();
-}
-*/
 
 
 function compareChoices(player,computer){
@@ -52,17 +45,37 @@ function playRound(playerChoice){
 
     switch(outcome){
         case 'tie':
-            return 'It was a tie, both played ' + playerChoice;
+            return 'It was a tie ......... both played ' + playerChoice;
             break;
+
         case 'player':
-            return 'You won!!!1, you played: ' + playerChoice + ' computer played: ' + computerChoice;
+            scoreCheck('player');
+            return ('Player Wins The Round!! ' + '.........' + ' Player played: ' +
+            playerChoice + '        Computer played: ' + computerChoice); 
             break;
+
         case 'computer':
-            return 'You lost! :((( , you played: ' + playerChoice + ' computer played: ' + computerChoice;
+            scoreCheck('computer');
+            return ('Computer Wins The Round!! ' + '.........' + ' Player played: ' +
+            playerChoice + '        Computer played: ' + computerChoice);  
             break;
     }
+}
 
 
+function scoreCheck(choice){
+    if (choice == 'player') playerScore++;
+    else if(choice == 'computer') computerScore++;
+    lblPlayer.textContent = 'Player Score: ' + playerScore;
+    lblComputer.textContent = 'Computer Score: ' + computerScore;
+
+    if (playerScore == 5){
+        finalMessage.textContent = 'PLAYER WINS IT ALL!!!';
+    }
+    else if (computerScore == 5){
+        finalMessage.textContent = 'COMPUTER WINS IT ALL!!!';
+    }
+    
 }
 
 /*
@@ -70,6 +83,7 @@ DOM manipulation stuff!!
 */
 
 const resultDisplay = document.querySelector('div');
+
 
 const btnRock = document.querySelector('#rock');
 btnRock.addEventListener('click', () => {
@@ -89,6 +103,12 @@ btnScissors.addEventListener('click', () => {
 });
 
 
+const lblPlayer = document.querySelector('#playerScore');
+const lblComputer = document.querySelector('#computerScore');
+const finalMessage = document.querySelector('#victorMessage');
+
+
+//Missing feature, reset the game once someone has won
 
 
 
